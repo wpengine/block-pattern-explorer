@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<ruleset name="Block_Pattern_Explorer">
+	<description>Rules for Block Pattern Explorer</description>
+
+    <arg name="extensions" value="php" />
+    <arg name="basepath" value="./" />
+    <file>./</file>
+
+    <exclude-pattern>*/build/*</exclude-pattern>
+    <exclude-pattern>*/dist/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/wordpress*/*</exclude-pattern>
+    <exclude-pattern>*/\.*</exclude-pattern>
+
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<!-- Include the WordPress-Extra standard. -->
+	<rule ref="WordPress-Extra">
+
+		<!-- Turn off the Yoda Condition sniffer.
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda"/>-->
+	</rule>
+
+	<!-- Let's also check that everything is properly documented. -->
+	<rule ref="WordPress-Docs"/>
+
+	<!-- Add in some extra rules from other standards. -->
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+	<rule ref="Generic.Commenting.Todo"/>
+
+	<!-- Check for PHP cross-version compatibility. -->
+	<config name="testVersion" value="5.6-"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!--
+	To get the optimal benefits of using WPCS, we should add a couple of
+	custom properties. Adjust the values of these properties to fit our needs.
+	For information on additional custom properties available, check out
+	the wiki:
+	https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties
+	-->
+	<config name="minimum_supported_wp_version" value="5.0.0"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" value="block-pattern-explorer"/>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="block_pattern_explorer"/>
+				<element value="BPE"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

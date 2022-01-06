@@ -1,0 +1,256 @@
+/* Temporary styling until the SearchControl is included in WP core. */
+@import 'core-components/search-control/style.scss';
+
+/* Needed some extra styling for when the pattern explorer button is disabled */
+#block-pattern-explorer {
+    .components-button {
+        &.has-icon {
+            min-width: 36px !important;
+            padding: 6px !important;
+        }
+
+        &[disabled]:hover {
+            color: initial;
+        }
+    }
+}
+
+.block-pattern-explorer__modal {
+    display: flex;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    z-index: 160000;
+    height: 100%;
+    min-height: calc(100% - 60px);
+    border-radius: 0;
+    transform: none;
+
+    .components-modal__header {
+        margin: 0;
+    }
+
+    .components-modal__header-heading {
+        svg {
+            margin-right: 10px;
+            width: 24px;
+        }
+    }
+
+    .components-modal__content {
+        flex: 1; /* Will likely not be needed in WP 5.9 */
+        overflow: auto;
+        padding: 0;
+
+        &:before {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.block-pattern-explorer {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+
+    &.is-error {
+        display: block;
+        margin: 24px 32px;
+    }
+
+    .components-notice {
+        margin: 0;
+
+        .components-notice__content {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        &.is-error {
+            background-color: #f8ebea;
+        }
+
+        p {
+            margin: 12px 0 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .block-pattern-explorer__preview {
+        width: 100%;
+        padding: 32px 32px 100px;
+        overflow: auto;
+    }
+
+    .block-pattern-explorer__preview-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        &__search-results {
+            display: flex;
+
+            .components-spinner {
+                margin: 0 12px 0 0;
+            }
+        }
+
+        &__controls {
+            display: flex;
+
+            .viewport-toggle {
+                margin-right: 6px;
+            }
+
+            &>button {
+                margin-left: 6px;
+            }
+        }
+    }
+
+    .block-pattern-explorer__preview-pattern-list {
+        width: 100%;
+
+        &>div {
+            margin-bottom: 2rem;
+        }
+
+        &.preview-tablet {
+            &>div {
+                max-width: 790px;
+                margin: 0 auto 4rem;
+            }
+        }
+
+        &.preview-mobile {
+            &>div {
+                max-width: 358px;
+                margin: 0 auto 4rem;
+            }
+        }
+
+        &.is-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 32px;
+            justify-items: center;
+
+            @media ( min-width: 1400px ) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            &>div {
+                margin-bottom: 0;
+            }
+
+            &.preview-tablet,
+            &.preview-mobile {
+                &>div {
+                    margin: 0;
+                }
+            }
+
+            .block-editor-block-preview__container {
+                max-height: 400px;
+                overflow: scroll;
+            }
+        }
+
+        &.no-results {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        &__item {
+            border: 1px solid #dddddd;
+            border-radius: 2px;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            transition: all .05s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &:hover {
+                border-color: var(--wp-admin-theme-color);
+            }
+
+            &-preview {
+                cursor: pointer;
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                min-height: 200px;
+                background: #f0f0f0;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            &-actions {
+                background: #fff;
+                border-top: 1px solid #ddd;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+            }
+
+            &-title {
+                font-size: 12px;
+                padding: 6px;
+                text-align: center;
+            }
+        }
+    }
+
+    .block-pattern-explorer__preview-loading {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 64px 0;
+    }
+
+    .block-pattern-explorer__sidebar {
+        border-right: 1px solid #ddd;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        overflow-y: scroll;
+        padding: 32px;
+        width: 280px;
+
+        &__search {
+            margin-bottom: 16px;
+
+            .components-base-control__field {
+                margin-bottom: 0;
+            }
+        }
+
+        &__category-type {
+            &__title {
+                color: #757575;
+                font-size: 11px;
+                font-weight: 500;
+                margin: 0;
+                padding: 16px 12px 0;
+                text-transform: uppercase;
+            }
+
+            &__categories {
+                padding: 16px 0;
+            }
+        }
+    }
+}
