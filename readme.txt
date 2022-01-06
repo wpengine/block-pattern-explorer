@@ -1,9 +1,9 @@
 === Block Pattern Explorer ===
 Author URI:        https://wwww.nickdiego.com
-Contributors:      ndiego
+Contributors:      ndiego, bgardner, wpengine
 Tags:              patterns, blocks, block patterns, starter content
 Requires at least: 5.8
-Tested up to:      5.8
+Tested up to:      5.9
 Requires PHP:      7.1
 Stable tag:        0.2.1
 License:           GPLv2 or later
@@ -13,9 +13,9 @@ An experimental plugin to preview and insert block patterns in the Block Editor.
 
 == Description ==
 
-An experimental plugin to preview and insert block patterns in the Block Editor (Gutenberg). It is not advised for use on production websites.
+An experimental plugin to preview and insert block patterns in the Block Editor (Gutenberg).
 
-Please note that no block patterns are included. Patterns must be provided by your theme or another plugin. You can also use the patterns provided by WordPress if enabled by your theme.
+Please note that no block patterns are included with this plugin. Patterns must be provided by your theme or another plugin. You can also use the patterns provided by WordPress if enabled by your theme.
 
 Furthermore, this plugin should be used in conjunction with the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) until WordPress 5.9 is officially released.
 
@@ -23,15 +23,9 @@ Furthermore, this plugin should be used in conjunction with the [Gutenberg plugi
 
 The Block Pattern Explorer is heavily influenced by the work currently being done in the Gutenberg [GitHub repository](https://github.com/WordPress/gutenberg) on pattern previews.
 
-The purpose of this project is to isolate the pattern explorer into a standalone plugin that WordPress users/developers can interact with immediately, provide feedback on, and begin implementing into their own websites. Ideally, this initiative will also help inform the direction of core development. If you have feedback or encounter a bug, please submit a support ticket.
+The purpose of this project is to isolate the pattern explorer into a standalone plugin that WordPress users/developers can interact with immediately, provide feedback on, and begin implementing into their own websites. Ideally, this initiative will also help inform the direction of core development.
 
 Once the pattern explorer is integrated into WordPress proper, this project will be sunsetted in favor of the core offering.
-
-=== Experimental Features ===
-
-1. Patterns can be displayed in either a grid or singular layout
-2. Preview patterns with different viewports (Desktop, Tablet, and Mobile)
-3. More to come...
 
 == Screenshots ==
 
@@ -42,7 +36,7 @@ Once the pattern explorer is integrated into WordPress proper, this project will
 Stay up-to-date on the Block Pattern Explorer, and Gutenberg development, using the links below. The plugin is also being built transparently on GitHub, so give it a star and follow along! 😉
 
 * [Follow on Twitter](https://twitter.com/nickmdiego)
-* [View on GitHub](https://github.com/ndiego/block-pattern-explorer)
+* [View on GitHub](https://github.com/wpengine/block-pattern-explorer)
 * [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/)
 * [Gutenberg on GitHub](https://github.com/WordPress/gutenberg)
 
