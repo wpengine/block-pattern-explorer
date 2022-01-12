@@ -54,7 +54,7 @@ class Pattern_Category_Type_REST_Controller extends WP_REST_Controller {
 
 		$pattern_category_types = WP_Block_Pattern_Category_Type_Registry::get_instance()->get_all_registered();
 
-		if ( $pattern_category_types ) {
+		if ( is_array( $pattern_category_types ) ) {
 			// @TODO Possibly add a prepare_settings_for_response function here
 			// in the future.
 			return new WP_REST_Response( array( 'patternCategoryTypes' => $pattern_category_types ), 200 );

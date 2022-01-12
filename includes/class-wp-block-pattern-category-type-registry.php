@@ -1,10 +1,9 @@
 <?php
 /**
- * Blocks API: WP_Block_Pattern_Category_Type_Registry class
+ * WP_Block_Pattern_Category_Type_Registry class
  *
- * @package WordPress
- * @subpackage Blocks
- * @since 6.0.0
+ * @package Block Pattern Explorer
+ * @since 0.2.0
  */
 
 /**
@@ -14,7 +13,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	/**
 	 * Registered block pattern category types array.
 	 *
-	 * @since 6.0.0
+	 * @since 0.2.0
 	 * @var array
 	 */
 	private $registered_category_types = array();
@@ -22,7 +21,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	/**
 	 * Container for the main instance of the class.
 	 *
-	 * @since 6.0.0
+	 * @since 0.2.0
 	 * @var WP_Block_Pattern_Category_Type_Registry|null
 	 */
 	private static $instance = null;
@@ -30,7 +29,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	/**
 	 * Registers a pattern category type.
 	 *
-	 * @since 6.0.0
+	 * @since 0.2.0
 	 *
 	 * @param string $category_type_name       Pattern category type name including namespace.
 	 * @param array  $category_type_properties Array containing the properties of the category type: label.
@@ -41,7 +40,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 			_doing_it_wrong(
 				__METHOD__,
 				__( 'Block pattern category type name must be a string.' ),
-				'6.0.0'
+				'0.2.0'
 			);
 			return false;
 		}
@@ -57,7 +56,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	/**
 	 * Unregisters a pattern category type.
 	 *
-	 * @since 6.0.0
+	 * @since 0.2.0
 	 *
 	 * @param string $category_type_name Pattern category type name including namespace.
 	 * @return bool True if the pattern category type was unregistered with success and false otherwise.
@@ -68,7 +67,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 				__METHOD__,
 				/* translators: %s: Block pattern categpry type name. */
 				sprintf( __( 'Block pattern category type "%s" not found.' ), $category_type_name ),
-				'6.0.0'
+				'0.2.0'
 			);
 			return false;
 		}
@@ -81,7 +80,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	/**
 	 * Retrieves an array containing the properties of a registered pattern category type.
 	 *
-	 * @since 6.0.0
+	 * @since 0.2.0
 	 *
 	 * @param string $category_type_name Pattern category type name including namespace.
 	 * @return array Registered pattern category type properties.
@@ -97,7 +96,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	/**
 	 * Retrieves all registered pattern category types.
 	 *
-	 * @since 6.0.0
+	 * @since 0.2.0
 	 *
 	 * @return array Array of arrays containing the registered pattern category types.
 	 */
@@ -108,7 +107,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	/**
 	 * Checks if a pattern category type is registered.
 	 *
-	 * @since 6.0.0
+	 * @since 0.2.0
 	 *
 	 * @param string $category_type_name Pattern category name including namespace.
 	 * @return bool True if the pattern category type is registered, false otherwise.
@@ -122,7 +121,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	 *
 	 * The instance will be created if it does not exist yet.
 	 *
-	 * @since 6.0.0
+	 * @since 0.2.0
 	 *
 	 * @return WP_Block_Pattern_Category_Type_Registry The main instance.
 	 */
@@ -138,7 +137,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 /**
  * Registers a new pattern category type.
  *
- * @since 6.0.0
+ * @since 0.2.0
  *
  * @param string $category_type_name       Pattern category type name including namespace.
  * @param array  $category_type_properties Array containing the properties of the category type.
@@ -151,7 +150,7 @@ function register_block_pattern_category_type( $category_type_name, $category_ty
 /**
  * Unregisters a pattern category type.
  *
- * @since 6.0.0
+ * @since 0.2.0
  *
  * @param string $category_type_name Pattern category type name including namespace.
  * @return bool True if the pattern category type was unregistered with success and false otherwise.
