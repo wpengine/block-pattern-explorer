@@ -1,18 +1,26 @@
 {
-  "name": "block-pattern-explorer",
-  "description": "An experimental plugin to preview and insert block patterns in the Block Editor.",
-  "type": "wordpress-plugin",
-  "license": "GPL-2.0-or-later",
-  "require": {},
-  "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-    "squizlabs/php_codesniffer": "^3.4.2",
-    "phpcompatibility/php-compatibility": "^9.2.0",
-    "phpcompatibility/phpcompatibility-wp": "^2.1",
-    "wp-coding-standards/wpcs": "^2.1.1"
-  },
-  "scripts": {
-      "lint": "@php ./vendor/bin/phpcs",
-      "lint-fix": "@php ./vendor/bin/phpcbf"
-  }
+    "name": "wpengine/block-pattern-explorer",
+    "type": "wordpress-plugin",
+    "description": "An experimental plugin to preview and insert block patterns in the Block Editor.",
+    "homepage": "https://github.com/wpengine/block-pattern-explorer",
+    "license": "GPL-2.0-or-later",
+    "require": {
+		"php": ">=5.6"
+	},
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "squizlabs/php_codesniffer": "^3.4.2",
+        "phpcompatibility/php-compatibility": "^9.2.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "wp-coding-standards/wpcs": "^2.1.1"
+    },
+    "scripts": {
+        "lint": "@php ./vendor/bin/phpcs",
+        "lint-fix": "@php ./vendor/bin/phpcbf"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
 }

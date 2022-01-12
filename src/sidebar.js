@@ -51,53 +51,69 @@ export default function PatternExplorerSidebar( props ) {
 					label={ __( 'Search patterns', 'block-pattern-explorer' ) }
 				/>
 			</div>
-			{ patternCategoryTypes.map( ( type ) => {
-				const categoriesOfType = patternCategories.filter( ( category ) => {
-
-					// If the selected category is uncategorized, return all
-					// pattern categories without assigned category types.
-					if ( type.name === 'uncategorized' ) {
-						return (
-							! category?.categoryTypes ||
-							category.categoryTypes.every( ( type ) =>
-								! registeredCategoryTypes.includes( type )
-							)
+			{ patternCategoryTypes.map( ( categoryType ) => {
+				const categoriesOfType = patternCategories.filter(
+					( category ) => {
+						// If the selected category is uncategorized, return all
+						// pattern categories without assigned category types.
+						if ( categoryType.name === 'uncategorized' ) {
+							return (
+								! category?.categoryTypes ||
+								category.categoryTypes.every(
+									( type ) =>
+										! registeredCategoryTypes.includes(
+											type
+										)
+								)
+							);
+						}
+						return category.categoryTypes?.includes(
+							categoryType.name
 						);
-					} else {
-						return category.categoryTypes?.includes( type.name );
 					}
-				} );
+				);
 
 				// If there are no categories in the current type, bail.
 				if ( ! categoriesOfType.length ) {
-					return;
+					return null;
 				}
 
 				return (
-					<div className={ `${ baseClassName }__category-type` }>
-						{ type?.hideLabelFromVision ? (
-								<VisuallyHidden as="h2">
-									{ type.label }
-								</VisuallyHidden>
-							) : (
-								<h2 className={ `${ baseClassName }__category-type__title` }>
-									{ type.label }
-								</h2>
+					<div
+						key={ categoryType }
+						className={ `${ baseClassName }__category-type` }
+					>
+						{ categoryType?.hideLabelFromVision ? (
+							<VisuallyHidden as="h2">
+								{ categoryType.label }
+							</VisuallyHidden>
+						) : (
+							<h2
+								className={ `${ baseClassName }__category-type__title` }
+							>
+								{ categoryType.label }
+							</h2>
 						) }
-						<div className={ `${ baseClassName }__category-type__categories` }>
-							<MenuGroup className={ `${ baseClassName }__categories-list` }>
+						<div
+							className={ `${ baseClassName }__category-type__categories` }
+						>
+							<MenuGroup
+								className={ `${ baseClassName }__categories-list` }
+							>
 								{ categoriesOfType.map( ( category ) => {
 									return (
 										<MenuItem
 											key={ category.name }
 											label={ category.label }
-											className={
-												`${ baseClassName }__categories-list__item`
-											}
+											className={ `${ baseClassName }__categories-list__item` }
 											isPressed={
-												! searchValue && category.name === selectedCategory
+												! searchValue &&
+												category.name ===
+													selectedCategory
 											}
-											onClick={ () => onClickCategory( category.name ) }
+											onClick={ () =>
+												onClickCategory( category.name )
+											}
 										>
 											{ category.label }
 										</MenuItem>

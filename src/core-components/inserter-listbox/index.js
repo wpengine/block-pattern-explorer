@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { __unstableUseCompositeState as useCompositeState } from '@wordpress/components';
+import { __unstableUseCompositeState as useCompositeState } from '@wordpress/components'; // eslint-disable-line
 
 /**
  * Internal dependencies

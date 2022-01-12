@@ -53,6 +53,7 @@
 		<properties>
 			<property name="prefixes" type="array">
 				<element value="block_pattern_explorer"/>
+				<element value="BlockPatternExplorer" />
 				<element value="BPE"/>
 			</property>
 		</properties>

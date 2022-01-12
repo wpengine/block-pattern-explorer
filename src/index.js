@@ -8,7 +8,6 @@ import { isEmpty } from 'lodash';
  */
 import { __ } from '@wordpress/i18n';
 import { render, useState, useMemo, useCallback } from '@wordpress/element';
-import { addFilter } from '@wordpress/hooks';
 import { dispatch, subscribe } from '@wordpress/data';
 import { Button, Modal } from '@wordpress/components';
 import { layout } from '@wordpress/icons';
@@ -31,11 +30,6 @@ function HeaderToolbarButton() {
 
 	const fetchedCategoryTypes =
 		allCategoryTypes === 'fetching' ? [] : allCategoryTypes;
-
-	// If there are no patterns, do not display the pattern explorer button.
-	if ( isEmpty( allPatterns ) ) {
-		return null;
-	}
 
 	// Check if a pattern has an assigned pattern category.
 	const hasRegisteredCategory = useCallback(
@@ -102,26 +96,23 @@ function HeaderToolbarButton() {
 
 	// Remove any pattern category type without populated pattern categories.
 	const populatedCategoryTypes = useMemo( () => {
-		const categoryTypes = fetchedCategoryTypes
-			.filter( ( type ) =>
-				populatedCategories.some( ( category ) =>
-					category.categoryTypes?.includes( type.name )
-				)
-			);
+		const categoryTypes = fetchedCategoryTypes.filter( ( type ) =>
+			populatedCategories.some( ( category ) =>
+				category.categoryTypes?.includes( type.name )
+			)
+		);
 
 		// If there are categories without types, create the Uncategorized type.
 		if (
 			populatedCategories.some(
 				( category ) => ! hasRegisteredCategoryType( category )
 			) &&
-			! categoryTypes.find(
-				( type ) => type.name === 'uncategorized'
-			)
+			! categoryTypes.find( ( type ) => type.name === 'uncategorized' )
 		) {
 			categoryTypes.unshift( {
 				name: 'uncategorized',
 				label: __( 'Uncategorized', 'block-pattern-explorer' ),
-				hideLabelFromVision: true
+				hideLabelFromVision: true,
 			} );
 		}
 
@@ -135,17 +126,27 @@ function HeaderToolbarButton() {
 		// If the first category type is 'uncategorized', filter all categories
 		// without types and all categories with the type 'uncategorized'.
 		if ( populatedCategoryTypes[ 0 ].name === 'uncategorized' ) {
-			return ! category.categoryTypes || ! category.categoryTypes.length || category.categoryTypes?.includes( 'uncategorized' );
+			return (
+				! category.categoryTypes ||
+				! category.categoryTypes.length ||
+				category.categoryTypes?.includes( 'uncategorized' )
+			);
 		}
 
 		// If the first type is not 'uncategorized', filter all the categories in the
 		// first type.
-		return category.categoryTypes?.includes( populatedCategoryTypes[ 0 ].name );
+		return category.categoryTypes?.includes(
+			populatedCategoryTypes[ 0 ].name
+		);
 	} )[ 0 ];
+
+	// If there are no patterns, do not display the pattern explorer button.
+	if ( isEmpty( allPatterns ) ) {
+		return null;
+	}
 
 	return (
 		<>
-
 			<Button
 				icon={ layout }
 				label={ __( 'Explore Patterns', 'block-pattern-explorer' ) }
@@ -176,9 +177,7 @@ function HeaderToolbarButton() {
  * Add the header toolbar button to the block editor.
  */
 subscribe( () => {
-	const inserter = document.querySelector(
-		'#block-pattern-explorer'
-	);
+	const inserter = document.querySelector( '#block-pattern-explorer' );
 
 	// If the inserter already exists, bail.
 	if ( inserter ) {
@@ -210,13 +209,14 @@ subscribe( () => {
 /**
  * (Experimental) Add support for the pattern category type setting.
  *
+ * @param {Array} settings All editor settings
  * @since 0.2.0
  */
-function addCategoryTypeSupport( settings ) {
-	settings.push( '__experimentalBlockPatternCategoryTypes' );
-
-	return settings;
-}
+// function addCategoryTypeSupport( settings ) {
+// 	settings.push( '__experimentalBlockPatternCategoryTypes' );
+//
+// 	return settings;
+// }
 // addFilter(
 // 	'editor.SupportedEditorSettings',
 // 	'block-pattern-explorer/add-category-type-support',

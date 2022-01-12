@@ -40,7 +40,8 @@ const usePatternsState = ( onInsert, rootClientId ) => {
 				patterns: __experimentalGetAllowedPatterns( rootClientId ),
 				patternCategories: getSettings()
 					.__experimentalBlockPatternCategories,
-				patternCategoryTypes: categoryTypes?.patternCategoryTypes ?? 'fetching',
+				patternCategoryTypes:
+					categoryTypes?.patternCategoryTypes ?? 'fetching',
 				// This is new functionality and will need to ultimately be added to the
 				// Gutenberg Patterns API. Category Types allow theme/plugin developers to
 				// group pattern categories together in the new Pattern Explorer.
@@ -68,7 +69,12 @@ const usePatternsState = ( onInsert, rootClientId ) => {
 		);
 	}, [] );
 
-	return [ patterns, patternCategories, patternCategoryTypes, onClickPattern ];
+	return [
+		patterns,
+		patternCategories,
+		patternCategoryTypes,
+		onClickPattern,
+	];
 };
 
 export default usePatternsState;

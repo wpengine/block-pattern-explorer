@@ -10,8 +10,8 @@ import { isEmpty } from 'lodash';
 import { __ } from '@wordpress/i18n';
 import { category, stretchFullWidth } from '@wordpress/icons';
 import {
-	__unstableComposite as Composite,
-	__unstableUseCompositeState as useCompositeState,
+	__unstableComposite as Composite, // eslint-disable-line
+	__unstableUseCompositeState as useCompositeState, // eslint-disable-line
 } from '@wordpress/components';
 
 /**
@@ -38,7 +38,7 @@ export default function PreviewPatternList( props ) {
 		viewportWidth,
 	} = props;
 
-	const [ destinationRootClientId, onInsertBlocks ] = useInsertionPoint( {
+	const [ destinationRootClientId, onInsertBlocks ] = useInsertionPoint( { // eslint-disable-line
 		shouldFocusBlock: true,
 	} );
 
@@ -47,12 +47,12 @@ export default function PreviewPatternList( props ) {
 	const hasPatterns = ! isError && ! noSearchResults;
 
 	const noPatternsMessage =
-		( ! hasPatterns && noSearchResults )
+		! hasPatterns && noSearchResults
 			? __( 'No search results found.', 'block-pattern-explorer' )
 			: __(
-				'No patterns were found for this category.',
-				'block-pattern-explorer'
-			);
+					'No patterns were found for this category.',
+					'block-pattern-explorer'
+			  );
 
 	const composite = useCompositeState();
 	const baseClassName = 'block-pattern-explorer__preview-pattern-list';
@@ -69,19 +69,16 @@ export default function PreviewPatternList( props ) {
 				<Composite
 					{ ...composite }
 					role="listbox"
-					className={ classnames(
-						baseClassName,
-						{
-							'is-grid': isGrid,
-							'is-loading': isLoading,
-							// TODO this needs reworking.
-							'preview-tablet': viewportWidth === 778,
-							'preview-mobile': viewportWidth === 358,
-						}
-					) }
+					className={ classnames( baseClassName, {
+						'is-grid': isGrid,
+						'is-loading': isLoading,
+						// TODO this needs reworking.
+						'preview-tablet': viewportWidth === 778,
+						'preview-mobile': viewportWidth === 358,
+					} ) }
 					aria-label={ __( 'Patterns', 'block-pattern-explorer' ) }
 				>
-					{ shownPatterns.map( ( pattern ) =>
+					{ shownPatterns.map( ( pattern ) => (
 						<Pattern
 							key={ pattern.name }
 							pattern={ pattern }
@@ -89,7 +86,7 @@ export default function PreviewPatternList( props ) {
 							viewportWidth={ viewportWidth }
 							composite={ composite }
 						/>
-					) }
+					) ) }
 				</Composite>
 			) }
 		</InserterListbox>

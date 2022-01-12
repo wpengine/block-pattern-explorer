@@ -83,9 +83,9 @@ export default function PreviewHeader( props ) {
 					toggleProps={ { isTertiary: true } }
 					popoverProps={ { focusOnMount: 'container' } }
 				>
-					{ ( { onClose } ) => (
+					{ () => (
 						<>
-							{ widths.map( ( width, index ) => (
+							{ widths.map( ( width ) => (
 								<MenuItem
 									key={ width.slug }
 									className={ classnames( {

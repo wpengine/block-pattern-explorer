@@ -2,15 +2,16 @@
 /**
  * REST API Pattern Category Types Controller
  *
- * Handles requests to block-pattern-explorer/v1/pattern-category-types
- *
  * @package Block Pattern Explorer
  * @since 0.2.0
  */
 
 defined( 'ABSPATH' ) || exit;
 
-class Pattern_Category_Type_REST_Controller extends WP_REST_Controller {
+/**
+ * Handles requests to block-pattern-explorer/v1/pattern-category-types.
+ */
+class BPE_Pattern_Category_Types_REST_Controller extends WP_REST_Controller {
 
 	/**
 	 * Endpoint namespace.
@@ -52,7 +53,7 @@ class Pattern_Category_Type_REST_Controller extends WP_REST_Controller {
 	 */
 	public function get_pattern_category_types() {
 
-		$pattern_category_types = WP_Block_Pattern_Category_Type_Registry::get_instance()->get_all_registered();
+		$pattern_category_types = BPE_Block_Pattern_Category_Types_Registry::get_instance()->get_all_registered();
 
 		if ( is_array( $pattern_category_types ) ) {
 			// @TODO Possibly add a prepare_settings_for_response function here
@@ -81,7 +82,7 @@ class Pattern_Category_Type_REST_Controller extends WP_REST_Controller {
 			'items'   => array(
 				'type'       => 'object',
 				'properties' => array(
-					'name'      => array(
+					'name'  => array(
 						'type' => 'string',
 					),
 					'label' => array(

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /**
  * External dependencies
  */

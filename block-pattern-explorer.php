@@ -14,12 +14,13 @@
  *
  * @package Block Pattern Explorer
  */
+
 namespace BlockPatternExplorer;
 
 defined( 'ABSPATH' ) || exit;
 
 define( 'BPE_ABSPATH', dirname( __FILE__ ) . '/' );
-define( 'BPE_VERSION', get_file_data( __FILE__, [ 'Version' ] )[0] );
+define( 'BPE_VERSION', get_file_data( __FILE__, [ 'Version' ] )[0] ); // phpcs:ignore
 define( 'BPE_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
 
 /**
@@ -65,7 +66,7 @@ function get_asset_file( $filepath ) {
 	$asset_path = BPE_ABSPATH . $filepath . '.asset.php';
 
 	return file_exists( $asset_path )
-		? include $asset_path
+		? require_once $asset_path
 		: array(
 			'dependencies' => array(),
 			'version'      => BPE_VERSION,
@@ -99,7 +100,7 @@ function enqueue_script_translations() {
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_script_translations' );
 
 // Custom pattern category type implementation.
-include_once BPE_ABSPATH . '/includes/custom/add-pattern-category-type-support.php';
+require_once BPE_ABSPATH . '/includes/add-pattern-category-type-support.php';
 
 // (Experimental) Will be used once Block Editor settings are filterable in core.
-//include_once BPE_ABSPATH . '/includes/core/add-pattern-category-type-support.php';
+// include_once BPE_ABSPATH . '/includes/core/add-pattern-category-type-support.php';
