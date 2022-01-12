@@ -12,11 +12,9 @@ function InserterNoResults( { icon, label } ) {
 				icon={ icon ? icon : blockDefault }
 			/>
 			<p>
-				{
-					label
-						? label
-						: __( 'No results found.', 'block-pattern-explorer' )
-				}
+				{ label
+					? label
+					: __( 'No results found.', 'block-pattern-explorer' ) }
 			</p>
 		</div>
 	);

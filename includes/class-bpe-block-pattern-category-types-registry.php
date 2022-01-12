@@ -1,6 +1,6 @@
 <?php
 /**
- * WP_Block_Pattern_Category_Type_Registry class
+ * BPE_Block_Pattern_Category_Types_Registry class
  *
  * @package Block Pattern Explorer
  * @since 0.2.0
@@ -9,7 +9,7 @@
 /**
  * Class used for interacting with block pattern category types.
  */
-final class WP_Block_Pattern_Category_Type_Registry {
+final class BPE_Block_Pattern_Category_Types_Registry {
 	/**
 	 * Registered block pattern category types array.
 	 *
@@ -22,7 +22,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	 * Container for the main instance of the class.
 	 *
 	 * @since 0.2.0
-	 * @var WP_Block_Pattern_Category_Type_Registry|null
+	 * @var BPE_Block_Pattern_Category_Types_Registry|null
 	 */
 	private static $instance = null;
 
@@ -39,7 +39,12 @@ final class WP_Block_Pattern_Category_Type_Registry {
 		if ( ! isset( $category_type_name ) || ! is_string( $category_type_name ) ) {
 			_doing_it_wrong(
 				__METHOD__,
-				__( 'Block pattern category type name must be a string.' ),
+				esc_html(
+					__(
+						'Block pattern category type name must be a string.',
+						'block-pattern-explorer'
+					)
+				),
 				'0.2.0'
 			);
 			return false;
@@ -65,8 +70,16 @@ final class WP_Block_Pattern_Category_Type_Registry {
 		if ( ! $this->is_registered( $category_type_name ) ) {
 			_doing_it_wrong(
 				__METHOD__,
-				/* translators: %s: Block pattern categpry type name. */
-				sprintf( __( 'Block pattern category type "%s" not found.' ), $category_type_name ),
+				esc_html(
+					sprintf(
+						/* translators: %s: Block pattern categpry type name. */
+						__(
+							'Block pattern category type "%s" not found.',
+							'block-pattern-explorer'
+						),
+						$category_type_name
+					)
+				),
 				'0.2.0'
 			);
 			return false;
@@ -123,7 +136,7 @@ final class WP_Block_Pattern_Category_Type_Registry {
 	 *
 	 * @since 0.2.0
 	 *
-	 * @return WP_Block_Pattern_Category_Type_Registry The main instance.
+	 * @return BPE_Block_Pattern_Category_Types_Registry The main instance.
 	 */
 	public static function get_instance() {
 		if ( null === self::$instance ) {
@@ -137,24 +150,32 @@ final class WP_Block_Pattern_Category_Type_Registry {
 /**
  * Registers a new pattern category type.
  *
+ * Note: This function is purposefully not namespaced/prefixed. It is designed
+ * to emulate a similar function that will be proposed for inclusion in core.
+ *
  * @since 0.2.0
  *
  * @param string $category_type_name       Pattern category type name including namespace.
  * @param array  $category_type_properties Array containing the properties of the category type.
  * @return bool True if the pattern category type was registered with success and false otherwise.
  */
+// phpcs:ignore
 function register_block_pattern_category_type( $category_type_name, $category_type_properties ) {
-	return WP_Block_Pattern_Category_Type_Registry::get_instance()->register( $category_type_name, $category_type_properties );
+	return BPE_Block_Pattern_Category_Types_Registry::get_instance()->register( $category_type_name, $category_type_properties );
 }
 
 /**
  * Unregisters a pattern category type.
+ *
+ * Note: This function is purposefully not namespaced/prefixed. It is designed
+ * to emulate a similar function that will be proposed for inclusion in core.
  *
  * @since 0.2.0
  *
  * @param string $category_type_name Pattern category type name including namespace.
  * @return bool True if the pattern category type was unregistered with success and false otherwise.
  */
+// phpcs:ignore
 function unregister_block_pattern_category_type( $category_type_name ) {
-	return WP_Block_Pattern_Category_Type_Registry::get_instance()->unregister( $category_type_name );
+	return BPE_Block_Pattern_Category_Types_Registry::get_instance()->unregister( $category_type_name );
 }

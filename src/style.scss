@@ -137,9 +137,9 @@
 
         &.is-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             grid-gap: 32px;
-            justify-items: center;
+            grid-template: inherit;
+            grid-template-columns: repeat(2, 1fr);
 
             @media ( min-width: 1400px ) {
                 grid-template-columns: repeat(3, 1fr);
@@ -163,10 +163,10 @@
         }
 
         &.no-results {
-            display: flex;
             align-items: center;
-            justify-content: center;
+            display: flex;
             height: 100%;
+            justify-content: center;
         }
 
         &__item {
@@ -198,11 +198,11 @@
             }
 
             &-actions {
+                align-items: center;
                 background: #fff;
                 border-top: 1px solid #ddd;
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
                 padding: 10px;
             }
 
@@ -215,10 +215,10 @@
     }
 
     .block-pattern-explorer__preview-loading {
-        width: 100%;
         display: flex;
         justify-content: center;
         margin: 64px 0;
+        width: 100%;
     }
 
     .block-pattern-explorer__sidebar {

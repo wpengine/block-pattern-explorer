@@ -6,7 +6,7 @@ import { isEmpty } from 'lodash';
 /**
  * WordPress dependencies
  */
-import { _n } from '@wordpress/i18n';
+import { _n, sprintf } from '@wordpress/i18n';
 import { useEffect, useMemo, useState } from '@wordpress/element';
 import { useAsyncList, useDebounce } from '@wordpress/compose';
 import { speak } from '@wordpress/a11y';
@@ -78,19 +78,20 @@ export default function PatternExplorerPreview( props ) {
 		// Filter the pattern associated with the current category.
 		if ( ! isSearching ) {
 			results = allPatterns.filter( ( pattern ) => {
-
 				// If the selected category is uncategorized, return all block
 				// patterns without assigned categories.
 				if ( selectedCategory === 'uncategorized' ) {
 					return (
 						! pattern.categories?.length ||
-						pattern.categories.every( ( category ) =>
-							! registeredPatternCategories.includes( category )
+						pattern.categories.every(
+							( category ) =>
+								! registeredPatternCategories.includes(
+									category
+								)
 						)
 					);
-				} else {
-					return pattern.categories?.includes( selectedCategory );
 				}
+				return pattern.categories?.includes( selectedCategory );
 			} );
 		}
 

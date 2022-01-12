@@ -4,7 +4,7 @@
 import { __, sprintf } from '@wordpress/i18n';
 import {
 	Button,
-	__unstableCompositeItem as CompositeItem,
+	__unstableCompositeItem as CompositeItem, // eslint-disable-line
 	VisuallyHidden,
 } from '@wordpress/components';
 import { BlockPreview } from '@wordpress/block-editor';
@@ -28,13 +28,10 @@ export default function Pattern( props ) {
 		isBlock,
 		clientId,
 	} = props;
-	const { title, categories = [], blocks } = pattern;
-
+	const { title, categories = [], blocks } = pattern; // eslint-disable-line
 	const { createSuccessNotice } = useDispatch( 'core/notices' );
-
 	const instanceId = useInstanceId( Pattern );
 	const descriptionId = `preview-pattern-card__info-description-${ instanceId }`;
-	const imagePreview = pattern?.imagePreview ?? '';
 
 	function insertPattern() {
 		onInsertPattern( blocks.map( ( block ) => cloneBlock( block ) ) );
@@ -78,9 +75,7 @@ export default function Pattern( props ) {
 				/>
 			</CompositeItem>
 			<div className={ `${ baseClassName }-actions` }>
-				<div className={ `${ baseClassName }-title` }>
-					{ title }
-				</div>
+				<div className={ `${ baseClassName }-title` }>{ title }</div>
 				{ !! pattern.description && (
 					<VisuallyHidden id={ descriptionId }>
 						{ pattern.description }
