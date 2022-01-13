@@ -7,7 +7,13 @@ import classnames from 'classnames';
  * WordPress dependencies
  */
 import { __, _n, sprintf } from '@wordpress/i18n';
-import { Button, DropdownMenu, MenuItem, Spinner } from '@wordpress/components';
+import {
+	Button,
+	DropdownMenu,
+	MenuGroup,
+	MenuItem,
+	Spinner,
+} from '@wordpress/components';
 import { check, stretchFullWidth, category } from '@wordpress/icons';
 
 /**
@@ -81,10 +87,13 @@ export default function PreviewHeader( props ) {
 					text={ __( 'Preview', 'block-pattern-explorer' ) }
 					className="viewport-toggle"
 					toggleProps={ { isTertiary: true } }
-					popoverProps={ { focusOnMount: 'container' } }
+					popoverProps={ {
+						focusOnMount: 'container',
+						position: 'middle left',
+					} }
 				>
 					{ () => (
-						<>
+						<MenuGroup>
 							{ widths.map( ( width ) => (
 								<MenuItem
 									key={ width.slug }
@@ -97,7 +106,7 @@ export default function PreviewHeader( props ) {
 									{ width.label }
 								</MenuItem>
 							) ) }
-						</>
+						</MenuGroup>
 					) }
 				</DropdownMenu>
 				<Button

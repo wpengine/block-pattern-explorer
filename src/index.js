@@ -151,7 +151,6 @@ function HeaderToolbarButton() {
 				icon={ layout }
 				label={ __( 'Explore Patterns', 'block-pattern-explorer' ) }
 				onClick={ () => setIsModalOpen( true ) }
-				disabled={ allCategoryTypes === 'fetching' }
 			/>
 			{ isModalOpen && (
 				<Modal
@@ -159,6 +158,7 @@ function HeaderToolbarButton() {
 					closeLabel={ __( 'Close', 'block-pattern-explorer' ) }
 					onRequestClose={ () => setIsModalOpen( false ) }
 					className="block-pattern-explorer__modal"
+					isFullScreen
 				>
 					<PatternExplorer
 						allPatterns={ allPatterns }
