@@ -5,7 +5,7 @@ Tags:              patterns, blocks, block patterns, starter content
 Requires at least: 5.8
 Tested up to:      5.9
 Requires PHP:      7.1
-Stable tag:        0.2.1
+Stable tag:        0.3.0
 License:           GPLv2 or later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ An experimental plugin to preview and insert block patterns in the Block Editor 
 
 Please note that no block patterns are included with this plugin. Patterns must be provided by your theme or another plugin. You can also use the patterns provided by WordPress if enabled by your theme.
 
-Furthermore, this plugin should be used in conjunction with the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) until WordPress 5.9 is officially released.
+Furthermore, this plugin should be used in conjunction with the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/) until WordPress 5.9 is officially released on January 25, 2022.
 
 === Mission ===
 
@@ -25,7 +25,7 @@ The Block Pattern Explorer is heavily influenced by the work currently being don
 
 The purpose of this project is to isolate the pattern explorer into a standalone plugin that WordPress users/developers can interact with immediately, provide feedback on, and begin implementing into their own websites. Ideally, this initiative will also help inform the direction of core development.
 
-Once the pattern explorer is integrated into WordPress proper, this project will be sunsetted in favor of the core offering.
+Once the pattern explorer is fully integrated into WordPress proper, this project will be sunsetted in favor of the core offering.
 
 == Screenshots ==
 
@@ -49,6 +49,18 @@ Stay up-to-date on the Block Pattern Explorer, and Gutenberg development, using 
 3. Once activated, navigate to the Block Editor and you will see the "Insert Pattern" button in header toolbar. See the plugin screenshots for reference.
 
 == Changelog ==
+
+= 0.3.0 - 2022-01-13 =
+
+**Changed**
+
+* Minor updates to modal styling.
+* Updated screenshots.
+
+**Fixed**
+
+* Fixed API bug causing the pattern explorer to be inaccessible on themes that do not utilize pattern category types.
+* Fixed linting and code quality errors.
 
 = 0.2.1 - 2021-11-23 =
 
