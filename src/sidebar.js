@@ -6,7 +6,7 @@ import {
 	MenuGroup,
 	MenuItem,
 	SearchControl,
-	VisuallyHidden
+	VisuallyHidden,
 } from '@wordpress/components';
 import { useMemo } from '@wordpress/element';
 
