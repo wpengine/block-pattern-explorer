@@ -4,7 +4,7 @@
  * Description:        An experimental plugin to preview and insert block patterns in the Block Editor.
  * Author:             Nick Diego
  * Author URI:         https://www.nickdiego.com
- * Version:            0.2.1
+ * Version:            0.3.0
  * Requires at least:  5.8
  * Requires PHP:       7.1
  * License:            GPL2+
