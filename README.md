@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-green.svg)](https://github.com/wpengine/block-pattern-explorer/blob/master/LICENSE.txt)
 
-![Block Pattern Explorer](https://user-images.githubusercontent.com/4832319/149374997-381c41de-6608-4997-91df-d72c7e273e2e.png)
+![Block Pattern Explorer](https://user-images.githubusercontent.com/4832319/149385531-404f1d6f-4401-4786-9bfe-50b0be212adc.png)
 
 The Block Pattern Explorer is an experimental WordPress plugin based **heavily** on the work currently being done in [Gutenberg](https://github.com/WordPress/gutenberg).
 

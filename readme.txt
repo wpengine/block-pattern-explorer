@@ -54,7 +54,8 @@ Stay up-to-date on the Block Pattern Explorer, and Gutenberg development, using 
 
 **Changed**
 
-* Minor updates to modal styling.
+* Replaced custom search component with core version.
+* Updated modal styling to match core pattern explorer.
 * Updated screenshots.
 
 **Fixed**
