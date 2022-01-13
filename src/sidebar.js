@@ -2,13 +2,13 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { MenuGroup, MenuItem, VisuallyHidden } from '@wordpress/components';
+import {
+	MenuGroup,
+	MenuItem,
+	SearchControl,
+	VisuallyHidden
+} from '@wordpress/components';
 import { useMemo } from '@wordpress/element';
-
-/**
- * Internal dependencies
- */
-import SearchControl from './core-components/search-control';
 
 /**
  * Renders the block pattern category sidebar control.
