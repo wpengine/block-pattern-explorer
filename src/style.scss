@@ -82,6 +82,12 @@
                 margin-left: 6px;
             }
         }
+
+        /* Temp fix for DropdownMenu component. */
+        .components-popover__content {
+            margin-top: 85px;
+            margin-right: 20px;
+        }
     }
 
     .block-pattern-explorer__preview-pattern-list {
