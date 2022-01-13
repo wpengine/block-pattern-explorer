@@ -89,7 +89,7 @@ export default function PreviewHeader( props ) {
 					toggleProps={ { isTertiary: true } }
 					popoverProps={ {
 						focusOnMount: 'container',
-						position: 'middle left',
+						position: 'bottom left',
 					} }
 				>
 					{ () => (

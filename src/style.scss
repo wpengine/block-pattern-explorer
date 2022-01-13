@@ -59,12 +59,12 @@
 
     .block-pattern-explorer__preview-header {
         align-items: center;
-        display: flex;
+        display: inline-flex;
         justify-content: space-between;
         margin-bottom: 2rem;
 
         &__search-results {
-            display: flex;
+            display: inline-flex;
 
             .components-spinner {
                 margin: 0 12px 0 0;
@@ -72,7 +72,7 @@
         }
 
         &__controls {
-            display: flex;
+            display: inline-flex;
 
             .viewport-toggle {
                 margin-right: 6px;
@@ -85,8 +85,8 @@
 
         /* Temp fix for DropdownMenu component. */
         .components-popover__content {
-            margin-top: 85px;
-            margin-right: 20px;
+           margin-top: -50px;
+           margin-right: 48px !important;
         }
     }
 
