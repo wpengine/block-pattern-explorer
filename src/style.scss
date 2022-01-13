@@ -11,8 +11,8 @@
 }
 
 .block-pattern-explorer {
-    display: flex;
     align-items: stretch;
+    display: flex;
     height: 100%;
 
     &.is-error {
@@ -45,8 +45,8 @@
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
-        padding: 32px 32px 100px;
         overflow: auto;
+        padding: 32px 32px 100px;
         width: calc(100% - 281px);
 
         .block-editor-inserter__no-results {
@@ -58,9 +58,9 @@
     }
 
     .block-pattern-explorer__preview-header {
+        align-items: center;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         margin-bottom: 2rem;
 
         &__search-results {
@@ -146,25 +146,24 @@
         &__item {
             border: 1px solid #dddddd;
             border-radius: 2px;
-            height: 100%;
-            width: 100%;
-            position: relative;
-            transition: all .05s ease-in-out;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            transition: all .05s ease-in-out;
+            width: 100%;
 
             &:hover {
                 border-color: var(--wp-admin-theme-color);
             }
 
             &-preview {
-                cursor: pointer;
-                flex-grow: 1;
-                display: flex;
                 align-items: center;
-                min-height: 200px;
                 background: #f0f0f0;
+                cursor: pointer;
+                display: flex;
+                flex-grow: 1;
+                min-height: 200px;
 
                 img {
                     width: 100%;
