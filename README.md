@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-green.svg)](https://github.com/wpengine/block-pattern-explorer/blob/master/LICENSE.txt)
 
-![Block Pattern Explorer](https://raw.githubusercontent.com/ndiego/block-pattern-explorer/main/.wordpress-org/screenshot-1.png)
+![Block Pattern Explorer](https://user-images.githubusercontent.com/4832319/149374997-381c41de-6608-4997-91df-d72c7e273e2e.png)
 
 The Block Pattern Explorer is an experimental WordPress plugin based **heavily** on the work currently being done in [Gutenberg](https://github.com/WordPress/gutenberg).
 
@@ -10,23 +10,23 @@ The purpose of this project is to isolate the pattern explorer into a standalone
 
 Once the pattern explorer is fully integrated into WordPress proper, this project will be sunsetted in favor of the core offering.
 
-### Requirements
+### Follow Core Development
+
+Below is a list of current pull requests that are related to the Block Pattern Explorer in Gutenberg.
+
+- [#35006](https://github.com/WordPress/gutenberg/pull/35006)
+- [#35773](https://github.com/WordPress/gutenberg/pull/35773)
+
+## Requirements
 
 - WordPress 5.8+
 - [Gutenberg](https://github.com/WordPress/gutenberg) plugin (Not required if using WordPress 5.9+)
 - PHP 7.1+
 
-### Follow Core Development
-
-Below is a list of current pull requests that are related to the Block Pattern Explorer in Gutenberg.
-
-- https://github.com/WordPress/gutenberg/pull/35006
-- https://github.com/WordPress/gutenberg/pull/35773
-
-### Development
+## Development
 
 1. Set up a local WordPress development environment, we recommend using [Local](https://localwp.com/).
-2. In the `wp-content/plugins` folder, clone the GitHub repository: `https://github.com/wpengine/block-pattern-explorer.git`
+2. Clone / download this repository into the `wp-content/plugins` folder.
 3. Navigate to the `wp-content/plugins/block-pattern-explorer` folder in the command line.
 4. Run `npm install` to install the plugin's dependencies within a `/node_modules/` folder.
 5. Run `composer install` to install the additional WordPress composer tools within a `/vendor/` folder.

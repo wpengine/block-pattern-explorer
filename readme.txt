@@ -50,6 +50,18 @@ Stay up-to-date on the Block Pattern Explorer, and Gutenberg development, using 
 
 == Changelog ==
 
+= 0.3.0 - 2022-01-13 =
+
+**Changed**
+
+* Minor updates to modal styling.
+* Updated screenshots.
+
+**Fixed**
+
+* Fixed API bug causing the pattern explorer to be inaccessible on themes that do not utilize pattern category types.
+* Fixed linting and code quality errors.
+
 = 0.2.1 - 2021-11-23 =
 
 **Changed**
